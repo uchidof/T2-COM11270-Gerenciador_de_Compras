@@ -27,6 +27,8 @@
             <div class="total">
                 <span>Total: <strong>{{ total | dinheiro }}</strong></span>
             </div>
+            <hr>
+            <button>Finalizar compra</button>
         </div>
     </Painel>
 </template>
