@@ -1,5 +1,5 @@
 <template>
-    <Painel titulo="Estoque (Produtos Disponíveis)" azul :notificacao="produtos.length">
+    <Painel titulo="Estoque (Produtos disponíveis)" azul :notificacao="produtos.length">
         <div class="carrinho">
             <table>
                 <thead>
@@ -29,8 +29,6 @@
 </template>
 
 <script>
-
-
 export default {
     methods:{
         addCart(produto){
@@ -41,7 +39,7 @@ export default {
                 precoUni: produto.precoUni,
                 quantidade: produto.quantidade,
             };            
-            console.log('Colocando no CARRINHO', produtoNoCarrinho),
+            //console.log('Colocando no CARRINHO', produtoNoCarrinho),
             this.$store.commit('addCart',produtoNoCarrinho)
         },
 
@@ -54,7 +52,7 @@ export default {
 
         produtos(){
             return this.$store.state.produtos
-        }
+        },
     },
 }
 </script>

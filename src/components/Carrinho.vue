@@ -1,5 +1,5 @@
 <template>
-    <Painel titulo="Carrinho" roxo :notificacao="carrinho.length">
+    <Painel titulo="Carrinho" vermelho :notificacao="carrinho.length">
         <div class="carrinho">
             <table>
                 <thead>

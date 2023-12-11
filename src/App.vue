@@ -10,11 +10,9 @@
 </template>
 
 <script>
-//import Parametros from './components/Parametros'
 import Cadastro from './components/Cadastro'
 import Estoque from './components/Estoque'
 import Carrinho from './components/Carrinho'
-//import Resumo from './components/Resumo'
 
 export default {
 	name: 'app',

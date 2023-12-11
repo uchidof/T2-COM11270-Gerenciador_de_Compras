@@ -46,8 +46,8 @@ export default {
         align-items: center;
         font-size: 1.6rem;
         font-weight: 600;
-        color: #FFF;
-        background-color: #e53935;
+        color: #000000;
+        background-color: #fffb12;
         width: 60px;
     }
 

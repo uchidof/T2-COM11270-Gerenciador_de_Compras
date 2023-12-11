@@ -17,15 +17,21 @@ export default new Vuex.Store({
     },
     getters:{
         valorTotal(state){
-            return state.produtos.map(p => p.quantidade * p.precoUni)
+            return state.carrinho.map(p => p.quantidade * p.precoUni)
                 .reduce((total, atual) => total + atual, 0)
-        }
+        },
     },
     mutations:{
         adicionaProduto(state, payload){
-            state.produtos.push(payload)
-            console.log('ARMAZENANDO PRODUTO...')
-            //payLoad eh o produto
+            let existe = -1;
+            const procura = state.produtos.find((p) => p.codigo === payload.codigo);
+            if(procura != undefined){
+                existe = payload.codigo
+            } 
+            if (existe == -1) {
+                state.produtos.push(payload);
+                //console.log('ARMAZENANDO PRODUTO...')
+            }
         },
 
         addCart(state, payload) {
@@ -36,16 +42,14 @@ export default new Vuex.Store({
             } else {
               state.carrinho.push(payload);
             }
-        
-            console.log('ADICIONOU AO CARRINHO');
+            //console.log('ADICIONOU AO CARRINHO');
         },
 
-        
         subCart(state, payload){
             const existingProduct = state.carrinho.findIndex((p) => p.codigo === payload.codigo);
-            console.log('Produto para excluir:', 'POSICAO =', existingProduct);
+            //console.log('Produto para excluir:', 'POSICAO =', existingProduct);
             state.carrinho.splice(existingProduct,1)
-            console.log('EXCLUIU do CARRINHO');
+            //console.log('EXCLUIU do CARRINHO');
         },
 
         subProd(state, payload){
@@ -53,11 +57,9 @@ export default new Vuex.Store({
             state.produtos.splice(prodEstoque,1)
             const prodCart = state.carrinho.findIndex((p) => p.codigo === payload.codigo);
             state.carrinho.splice(prodCart,1)
-            console.log('ACABOU O ESTOQUE');
+            //console.log('ACABOU O ESTOQUE');
         },
         
-
-        ///*
         setCod(state, payLoad){
             state.codigo = payLoad
         }, 
@@ -73,14 +75,6 @@ export default new Vuex.Store({
         setQtde(state, payLoad){
             state.quantidade = payLoad
         },
-        //*/
     },
-    actions:{
-        adicionaProduto(context, payload){
-            console.log('ACAO DE ADICIONAR')
-            setTimeout(() =>{
-                context.commit('adicionaProduto', payload)
-            }, 2000)
-        }
-    }
+    
 })
