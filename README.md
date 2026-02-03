@@ -6,8 +6,7 @@
 
 ---
 ## ▶️ Como rodar o projeto
-
 1. Clone o repositório e acesse a pasta do projeto
-2. Instale as dependências:npm install
+2. Instale as dependências: npm install
 3. Execute o projeto: npm run dev
 4. Acesse no navegador o endereço exibido no terminal.
